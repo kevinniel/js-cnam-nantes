@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+</head>
+<body>
+	<h1>Pêche dans l'atlantique nord</h1>
+
+	<h2>Ajout d'un bateau</h2>
+
+	<form>
+		Nom du bateau
+		<input type="text" name="name">
+		Type du bateau
+		<input type="text" name="type">
+		Age du bateau
+		<input type="number" name="age">
+		<button type="submit">Envoyer</button>
+	</form>
+
+	<h2>Liste des bateaux de pêche</h2>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Nom du bateau</th>
+				<th>Type du bateau</th>
+				<th>Age du bateau</th>
+			</tr>
+		</thead>
+		<tbody id="content">
+			<tr>
+				<td>Adrien</td>
+				<td>Voilier</td>
+				<td>2</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<footer>
+
+		<script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+
+			// console.log("ok");
+
+			// affichage du contenu de la balise H1
+			// var titre = $("h1");
+			// console.log(titre.text());
+
+			// je déclenche une action a l'évènement du click du boutton de type submit
+			$('button[type="submit"]').on('click', function(event){
+				// j'empêche le rechargement de la page
+				event.preventDefault();
+
+				// je récupère les informations du formulaire
+				var name = $('input[name="name"]').val();
+				var age = $('input[name="age"]').val();
+				var type = $('input[name="type"]').val();
+
+				console.log(name, age, type);
+
+				// j'intègre au tableau les informations récupérées
+				var new_content = "<tr><td>";
+				new_content += name;
+				new_content += "</td><td>";
+				new_content += type;
+				new_content += "</td><td>";
+				new_content += age;
+				new_content += "</td></tr>";
+
+				// console.log(new_content);
+				$("#content").append(new_content);
+
+			});
+
+		</script>	
+	</footer>
+
+</body>
+</html>
